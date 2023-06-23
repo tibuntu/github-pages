@@ -1,4 +1,4 @@
-## Timo Koller
+## Timo Hankamer
 
 Hi there!
 
