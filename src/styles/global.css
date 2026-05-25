@@ -2,12 +2,12 @@
 @import '@fontsource/jetbrains-mono/500.css';
 @import '@fontsource/jetbrains-mono/700.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root,
-[data-theme='dark'] {
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --color-bg: #0d1117;
   --color-fg: #c9d1d9;
   --color-muted: #6e7681;
@@ -26,7 +26,7 @@
 html {
   background: var(--color-bg);
   color: var(--color-fg);
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: var(--font-mono);
   font-size: 15px;
   line-height: 1.6;
   color-scheme: dark;
@@ -54,11 +54,6 @@ a:hover {
 ::selection {
   background: var(--color-accent);
   color: var(--color-bg);
-}
-
-@keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
 }
 
 .prose h1 {
@@ -96,6 +91,11 @@ a:hover {
 
 .prose code {
   color: var(--color-accent);
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
 .caret {
