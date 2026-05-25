@@ -1,0 +1,18 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import BlinkingCaret from '~/components/BlinkingCaret.astro';
+---
+
+<Layout title="404 · command not found">
+  <section class="space-y-4">
+    <pre class="whitespace-pre-wrap text-sm leading-relaxed">
+<span class="text-muted">$ cd </span><span class="text-fg">{Astro.url.pathname}</span>
+<span class="text-fg">bash: cd: {Astro.url.pathname}: No such file or directory</span>
+
+<span class="text-muted">$ </span><span class="inline-block"><BlinkingCaret /></span>
+    </pre>
+    <p>
+      <a href="/">cd ~</a>
+    </p>
+  </section>
+</Layout>

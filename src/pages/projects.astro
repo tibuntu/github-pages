@@ -1,0 +1,38 @@
+---
+import Layout from '~/layouts/Layout.astro';
+import ProjectCard from '~/components/ProjectCard.astro';
+import projects from '~/data/projects.json';
+
+interface Project {
+  name: string;
+  url: string;
+  description: string;
+  language: string;
+  stars: number;
+}
+
+const items = projects as Project[];
+---
+
+<Layout title="Projects · Timo Hankamer">
+  <section class="space-y-6">
+    <header class="space-y-1">
+      <p class="text-sm text-muted">$ apt list --installed</p>
+      <h1 class="text-2xl font-medium">Projects</h1>
+      <p class="text-muted">
+        Public repositories on <a href="https://github.com/tibuntu">github.com/tibuntu</a>,
+        refreshed on every deploy.
+      </p>
+    </header>
+
+    {
+      items.length === 0 ? (
+        <p class="text-muted">no packages found.</p>
+      ) : (
+        <div class="grid gap-3">
+          {items.map((p) => <ProjectCard {...p} />)}
+        </div>
+      )
+    }
+  </section>
+</Layout>

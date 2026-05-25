@@ -1,0 +1,38 @@
+---
+interface Props {
+  name: string;
+  url: string;
+  description: string;
+  language: string;
+  stars: number;
+}
+
+const { name, url, description, language, stars } = Astro.props;
+---
+
+<article
+  class="group rounded border border-border bg-bg/50 p-4 transition-colors hover:border-accent"
+>
+  <header class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+    <a href={url} class="text-base font-medium">
+      <span class="text-muted">$</span> apt show <span class="text-accent">{name}</span>
+    </a>
+    {
+      language ? (
+        <span class="text-xs text-muted">[{language}]</span>
+      ) : null
+    }
+    {
+      stars > 0 ? (
+        <span class="text-xs text-muted">★ {stars}</span>
+      ) : null
+    }
+  </header>
+  {
+    description ? (
+      <p class="mt-2 text-sm text-fg/90">{description}</p>
+    ) : (
+      <p class="mt-2 text-sm italic text-muted">no description</p>
+    )
+  }
+</article>

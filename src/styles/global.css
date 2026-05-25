@@ -1,0 +1,109 @@
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+@import '@fontsource/jetbrains-mono/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme='dark'] {
+  --color-bg: #0d1117;
+  --color-fg: #c9d1d9;
+  --color-muted: #6e7681;
+  --color-accent: #7ee787;
+  --color-border: #21262d;
+}
+
+[data-theme='light'] {
+  --color-bg: #fafafa;
+  --color-fg: #1f2328;
+  --color-muted: #57606a;
+  --color-accent: #1a7f37;
+  --color-border: #d0d7de;
+}
+
+html {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  color-scheme: dark;
+}
+
+[data-theme='light'] html,
+html[data-theme='light'] {
+  color-scheme: light;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.prose h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose h2 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+}
+
+.prose ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose ul li {
+  margin-bottom: 0.5rem;
+}
+
+.prose ul li::marker {
+  color: var(--color-accent);
+}
+
+.prose code {
+  color: var(--color-accent);
+}
+
+.caret {
+  display: inline-block;
+  width: 0.6ch;
+  background: var(--color-accent);
+  animation: blink 1s steps(1) infinite;
+  margin-left: 0.15ch;
+  color: transparent;
+  user-select: none;
+}
