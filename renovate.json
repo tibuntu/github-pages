@@ -14,6 +14,20 @@
       ],
       "groupName": "astro packages",
       "groupSlug": "astro"
+    },
+    {
+      "description": "Hold astro on v5 until @tailwindcss/vite supports the rolldown-vite bundler shipped in astro 6.",
+      "matchPackageNames": [
+        "astro"
+      ],
+      "allowedVersions": "<6"
+    },
+    {
+      "description": "@astrojs/mdx v5 requires astro v6; hold it back until astro can move to 6.",
+      "matchPackageNames": [
+        "@astrojs/mdx"
+      ],
+      "allowedVersions": "<5"
     }
   ],
   "prFooter": ""
