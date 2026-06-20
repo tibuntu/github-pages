@@ -1,8 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
-    ":semanticCommits"
+    "github>tibuntu/renovate-presets"
   ],
   "packageRules": [
     {
@@ -29,6 +28,5 @@
       ],
       "allowedVersions": "<5"
     }
-  ],
-  "prFooter": ""
+  ]
 }
